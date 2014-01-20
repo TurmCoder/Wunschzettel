@@ -63,10 +63,6 @@
       <Project>{57574C99-A585-49FF-8298-EDBAD647BC19}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Service2\Service2.csproj">
-      <Project>{f205ecaf-7741-4c35-8bc5-3535294d9343}</Project>
-      <Name>Service2</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Service\Service.csproj">
       <Project>{9bbb1d39-686e-47aa-bf69-2262e1ee51ff}</Project>
       <Name>Service</Name>

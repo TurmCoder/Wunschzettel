@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.ServiceModel.Web;
-using Service2;
 
 namespace Wunschzettel
 {
@@ -64,7 +63,7 @@ namespace Wunschzettel
 
         private WebServiceHost GetHost()
         {
-            var host = new WebServiceHost(typeof (WunschzettelService2));
+            var host = new WebServiceHost(typeof (WunschzettelService));
 
             return host;
         }
