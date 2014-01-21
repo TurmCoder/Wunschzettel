@@ -18,9 +18,12 @@ namespace Wunschzettel.Tests
         [Test]
         public void Run_Host()
         {
-            var server = new Server(this.database);
+            using (var server = new Server(this.database))
+            {
+                server.Run();
 
-            server.Run();
+                Assert.That(server.HostIsUp, Is.True);
+            }
         }
 
         [Test]
@@ -30,7 +33,11 @@ namespace Wunschzettel.Tests
 
             server.Run();
 
+            Assert.That(server.HostIsUp, Is.True);
+
             server.ShutDown();
+
+            Assert.That(server.HostIsUp, Is.False);
         }
 
         [Test]

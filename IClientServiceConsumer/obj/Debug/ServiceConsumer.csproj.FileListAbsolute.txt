@@ -1,5 +1,4 @@
 F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\bin\Debug\ServiceConsumer.dll
 F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\bin\Debug\ServiceConsumer.pdb
-F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.csprojResolveAssemblyReference.cache
 F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.dll
 F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.pdb

@@ -6,7 +6,7 @@ using System.ServiceModel.Web;
 
 namespace Wunschzettel
 {
-    public class Server: IServer
+    public class Server: IServer, IDisposable
     {
         private readonly IDatabaseAccessLayer database;
         private WebServiceHost host;
@@ -14,6 +14,11 @@ namespace Wunschzettel
         public Server(IDatabaseAccessLayer database)
         {
             this.database = database;
+        }
+
+        public bool HostIsUp
+        {
+            get { return this.host.State == CommunicationState.Opened; }
         }
 
         public void AddWish(Wish wish)
@@ -53,7 +58,7 @@ namespace Wunschzettel
 
         private void HostService()
         {
-            this.host = this.GetHost();
+            this.InitializeHost();
 
             this.host.Open();
 
@@ -61,20 +66,23 @@ namespace Wunschzettel
             Console.Read();
         }
 
-        private WebServiceHost GetHost()
+        private void InitializeHost()
         {
-            var host = new WebServiceHost(typeof(WunschzettelService), new Uri("http://localhost:8000"));
-            var endpoint = host.AddServiceEndpoint(typeof(IWunschzettelService), new WebHttpBinding(), "service");
-            host.Description.Behaviors.Add(new ServiceMetadataBehavior { HttpGetEnabled = true });
+            this.host = new WebServiceHost(typeof(WunschzettelService), new Uri("http://localhost:8000"));
+            this.host.AddServiceEndpoint(typeof(IWunschzettelService), new WebHttpBinding(), "service");
+            this.host.Description.Behaviors.Add(new ServiceMetadataBehavior { HttpGetEnabled = true });
             var debugBehavior = host.Description.Behaviors.Find<ServiceDebugBehavior>();
             debugBehavior.HttpHelpPageEnabled = true;
-
-            return host;
         }
 
         public void ShutDown()
         {
             this.host.Close();
+        }
+
+        public void Dispose()
+        {
+            this.ShutDown();
         }
     }
 }
