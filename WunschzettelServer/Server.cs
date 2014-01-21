@@ -9,6 +9,7 @@ namespace Wunschzettel
     public class Server: IServer
     {
         private readonly IDatabaseAccessLayer database;
+        private WebServiceHost host;
 
         public Server(IDatabaseAccessLayer database)
         {
@@ -52,20 +53,28 @@ namespace Wunschzettel
 
         private void HostService()
         {
-            var host = this.GetHost();
+            this.host = this.GetHost();
 
-            host.Open();
-            Console.WriteLine("Service is up and running");
-            Console.WriteLine("Press enter to quit ");
-            Console.ReadLine();
-            host.Close();
+            this.host.Open();
+
+            Console.WriteLine("Server is running.\r\nPress key to close.");
+            Console.Read();
         }
 
         private WebServiceHost GetHost()
         {
-            var host = new WebServiceHost(typeof (WunschzettelService));
+            var host = new WebServiceHost(typeof(WunschzettelService), new Uri("http://localhost:8000"));
+            var endpoint = host.AddServiceEndpoint(typeof(IWunschzettelService), new WebHttpBinding(), "service");
+            host.Description.Behaviors.Add(new ServiceMetadataBehavior { HttpGetEnabled = true });
+            var debugBehavior = host.Description.Behaviors.Find<ServiceDebugBehavior>();
+            debugBehavior.HttpHelpPageEnabled = true;
 
             return host;
+        }
+
+        public void ShutDown()
+        {
+            this.host.Close();
         }
     }
 }

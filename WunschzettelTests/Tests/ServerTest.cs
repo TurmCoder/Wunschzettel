@@ -24,6 +24,16 @@ namespace Wunschzettel.Tests
         }
 
         [Test]
+        public void Shut_Down()
+        {
+            var server = new Server(this.database);
+
+            server.Run();
+
+            server.ShutDown();
+        }
+
+        [Test]
         public void Add_Wish()
         {
             this.database = MockRepository.GenerateMock<IDatabaseAccessLayer>();

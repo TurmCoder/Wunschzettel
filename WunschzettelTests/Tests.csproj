@@ -70,6 +70,7 @@
     <Compile Include="Tests\DatabaseTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\ServerTest.cs" />
+    <Compile Include="Tests\ServiceConsumerTest.cs" />
     <Compile Include="Tests\ServiceTest.cs" />
     <Compile Include="Tests\ClientTest.cs" />
   </ItemGroup>
@@ -80,6 +81,10 @@
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{57574C99-A585-49FF-8298-EDBAD647BC19}</Project>
       <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IClientServiceConsumer\ServiceConsumer.csproj">
+      <Project>{70197e18-074e-4d39-8885-eedcce151930}</Project>
+      <Name>ServiceConsumer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Service\Service.csproj">
       <Project>{9BBB1D39-686E-47AA-BF69-2262E1EE51FF}</Project>
@@ -92,6 +97,10 @@
     <ProjectReference Include="..\WunschzettelServer\Server.csproj">
       <Project>{2C5275C1-00B9-4404-97EF-9B8812FDA049}</Project>
       <Name>Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Wunschzettel\Client.csproj">
+      <Project>{f3be998c-4eed-4a5c-9f12-4ff5465ca1cb}</Project>
+      <Name>Client</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
