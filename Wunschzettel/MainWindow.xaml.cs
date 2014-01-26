@@ -7,14 +7,17 @@ namespace Wunschzettel
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly IClientServiceConsumer service;
+
+        public MainWindow(IClientServiceConsumer service)
         {
+            this.service = service;
             InitializeComponent();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            this.service.GetPerson();
         }
     }
 }

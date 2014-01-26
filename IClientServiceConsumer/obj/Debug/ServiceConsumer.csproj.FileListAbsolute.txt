@@ -2,3 +2,8 @@ F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\bin\Debug\ServiceConsumer.dll
 F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\bin\Debug\ServiceConsumer.pdb
 F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.dll
 F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.pdb
+D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\bin\Debug\ServiceConsumer.dll
+D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\bin\Debug\ServiceConsumer.pdb
+D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.csprojResolveAssemblyReference.cache
+D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.dll
+D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.pdb

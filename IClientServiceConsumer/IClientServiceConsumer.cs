@@ -3,5 +3,6 @@
     public interface IClientServiceConsumer
     {
         bool Login();
+        void GetPerson();
     }
 }

@@ -18,6 +18,11 @@ namespace Wunschzettel
             return result.Contains("LoggedIn");
         }
 
+        public void GetPerson()
+        {
+            var result = this.client.DownloadString("Login");
+        }
+
         private void InitializeClient()
         {
             this.client = new WebClient();

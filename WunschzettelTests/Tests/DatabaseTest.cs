@@ -42,7 +42,7 @@ namespace Wunschzettel.Tests
             this.sessionFactoryBuilder = MockRepository.GenerateMock<ISessionFactoryBuilder>();
             this.sessionFactoryBuilder.Expect(b => b.CreateSessionFactory(Arg<Schema>.Is.Equal(Schema.Rebuild))).Return(this.sessionFactory);
 
-            this.database = new DatabaseAccessLayer(this.sessionFactoryBuilder);
+            var database = new DatabaseAccessLayer(this.sessionFactoryBuilder);
             
             database.Initalize(Schema.Rebuild);
 
