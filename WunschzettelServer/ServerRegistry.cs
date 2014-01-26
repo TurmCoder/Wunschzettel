@@ -9,6 +9,7 @@ namespace Wunschzettel
             For<IServer>().Use<Server>();
             For<IWunschzettelService>().Use<WunschzettelService>();
             For<IDatabaseAccessLayer>().Use<DatabaseAccessLayer>();
+            For<ISessionFactoryBuilder>().Use<SessionFactoryBuilder>();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Wunschzettel.Core;
 
 namespace Wunschzettel.Tests
 {

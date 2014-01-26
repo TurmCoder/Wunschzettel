@@ -1,16 +1,17 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
-namespace Wunschzettel
+namespace Wunschzettel.Core
 {
-    public class Person
+    public class Person:BaseEntity
     {
-        public string Vorname { get; set; }
+        public virtual string Vorname { get; set; }
 
-        public string Nachname { get; set; }
+        public virtual string Nachname { get; set; }
 
-        public bool IsAdmin { get; private set; }
+        public virtual bool IsAdmin { get; protected internal set; }
 
-        public IEnumerable<Wish> Wishlist { get; private set; }
+        public virtual IList<Wish> Wishlist { get; protected internal set; }
 
         public Person()
         {

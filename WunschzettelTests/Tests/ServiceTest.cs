@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Wunschzettel.Core;
 
 namespace Wunschzettel.Tests
 {

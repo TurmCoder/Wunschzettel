@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.ServiceModel.Web;
+using Wunschzettel.Core;
 
 namespace Wunschzettel
 {
@@ -53,6 +54,8 @@ namespace Wunschzettel
 
         public void Run()
         {
+            this.database.Initalize(Schema.Keep);
+
             this.HostService();
         }
 
@@ -61,9 +64,10 @@ namespace Wunschzettel
             this.InitializeHost();
 
             this.host.Open();
-
+#if RELEASE
             Console.WriteLine("Server is running.\r\nPress key to close.");
             Console.Read();
+#endif
         }
 
         private void InitializeHost()

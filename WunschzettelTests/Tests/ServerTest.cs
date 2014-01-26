@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Wunschzettel.Core;
 
 namespace Wunschzettel.Tests
 {
@@ -16,13 +17,26 @@ namespace Wunschzettel.Tests
         }
 
         [Test]
-        public void Run_Host()
+        public void Run_Starts_Host()
         {
             using (var server = new Server(this.database))
             {
                 server.Run();
 
                 Assert.That(server.HostIsUp, Is.True);
+            }
+        }
+
+        [Test]
+        public void Run_Initalizes_Database()
+        {
+            using (var server = new Server(this.database))
+            {
+                server.Run();
+
+                database.Expect(d => d.Initalize(Schema.Keep));
+
+                database.VerifyAllExpectations();
             }
         }
 

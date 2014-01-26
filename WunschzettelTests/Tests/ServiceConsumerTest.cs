@@ -30,7 +30,7 @@ namespace Wunschzettel.Tests
         {
             var consumer = new ClientServiceConsumer();
 
-            bool isLoggedIn = consumer.Login();
+            var isLoggedIn = consumer.Login();
 
             Assert.That(isLoggedIn, Is.EqualTo(true));
         }
