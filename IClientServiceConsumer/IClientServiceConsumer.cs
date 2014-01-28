@@ -1,8 +1,10 @@
-﻿namespace Wunschzettel
+﻿using Wunschzettel.Core;
+
+namespace Wunschzettel
 {
     public interface IClientServiceConsumer
     {
         bool Login();
-        void GetPerson();
+        Person GetPerson(int personId);
     }
 }

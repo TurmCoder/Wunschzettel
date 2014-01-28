@@ -7,3 +7,5 @@ D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\bin\Debug\Serv
 D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.csprojResolveAssemblyReference.cache
 D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.dll
 D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.pdb
+D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\bin\Debug\Core.dll
+D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\bin\Debug\Core.pdb

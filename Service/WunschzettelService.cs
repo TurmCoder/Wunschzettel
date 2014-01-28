@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using StructureMap;
 using Wunschzettel.Core;
 
 namespace Wunschzettel
@@ -6,10 +7,6 @@ namespace Wunschzettel
     public class WunschzettelService : IWunschzettelService
     {
         private readonly IDatabaseAccessLayer database;
-
-        public WunschzettelService()
-        {
-        }
 
         public WunschzettelService(IDatabaseAccessLayer database)
         {

@@ -7,11 +7,6 @@ namespace Wunschzettel
     /// </summary>
     public partial class App : Application
     {
-        private readonly IClientServiceConsumer service;
 
-        public App(IClientServiceConsumer service)
-        {
-            this.service = service;
-        }
     }
 }

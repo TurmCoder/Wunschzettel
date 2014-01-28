@@ -29,7 +29,7 @@ namespace Wunschzettel
         IEnumerable<Wish> GetWishes(int personId);
 
         [OperationContract]
-        [WebInvoke]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json)]
         Person GetPerson(int personId);
 
         [OperationContract]
