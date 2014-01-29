@@ -1,4 +1,6 @@
 ﻿using System.Windows;
+using System.Windows.Data;
+using StructureMap;
 
 namespace Wunschzettel
 {
@@ -9,14 +11,16 @@ namespace Wunschzettel
     {
         private readonly IClientServiceConsumer service;
 
-        public MainWindow(IClientServiceConsumer service)
+        public MainWindow()
         {
-            this.service = service;
             InitializeComponent();
+
+            this.service = ObjectFactory.GetInstance<IClientServiceConsumer>();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            var person = this.service.GetPerson(1);
         }
     }
 }

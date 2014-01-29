@@ -16,10 +16,10 @@ namespace Wunschzettel.Tests
         public void SetUp()
         {
             this.database = MockRepository.GenerateStub<IDatabaseAccessLayer>();
-            this.database.Stub(s => s.GetPerson(Arg<int>.Is.Equal(1))).Return(new Person() { Id = 1 });
+            this.database.Stub(s => s.GetPerson(Arg<int>.Is.Equal(1))).Return(new Person { Id = 1 });
 
             this.service = MockRepository.GenerateStub<IWunschzettelService>();
-            this.service.Stub(s => s.GetPerson(Arg<int>.Is.Equal(1))).Return(new Person() { Id = 1 });
+            this.service.Stub(s => s.GetPerson(Arg<int>.Is.Equal(1))).Return(new Person { Id = 1 });
 
             this.serializer = MockRepository.GenerateStub<WunschzettelSerializer>();
 

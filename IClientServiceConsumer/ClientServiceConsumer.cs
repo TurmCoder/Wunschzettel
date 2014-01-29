@@ -44,7 +44,6 @@ namespace Wunschzettel
 
             this.client.BaseAddress = "http://localhost:8000/service/";
             this.client.Headers["Content-type"] = "application/json";
-            
         }
     }
 }
