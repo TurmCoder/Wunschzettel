@@ -27,11 +27,18 @@ namespace Wunschzettel
 
         public Person GetPerson(int i)
         {
-            var methodString = String.Format("GetPerson?personId={0}", i);
+            //var methodString = String.Format("GetPerson?personId={0}", i);
 
-            var response = this.client.DownloadString(methodString);
+            //var response = this.client.DownloadString(methodString);
 
-            var person = this.serializer.Deserialize<Person>(response);
+            //var person = this.serializer.Deserialize<Person>(response);
+
+            var person = new Person()
+                {
+                    Id = 1,
+                    Nachname = "Knutson",
+                    Vorname = "Knut"
+                };
 
             return person;
         }

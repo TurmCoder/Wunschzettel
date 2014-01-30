@@ -9,3 +9,6 @@ D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\obj\Debug\Serv
 D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.pdb
 D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\bin\Debug\Core.dll
 D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\bin\Debug\Core.pdb
+F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\bin\Debug\Core.dll
+F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\bin\Debug\Core.pdb
+F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.csprojResolveAssemblyReference.cache
