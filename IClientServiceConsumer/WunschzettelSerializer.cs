@@ -21,5 +21,18 @@ namespace Wunschzettel
         {
             return new MemoryStream(Encoding.UTF8.GetBytes(result));
         }
+
+        public string Serialize<T>(T obj)
+        {
+            var serializer = new DataContractJsonSerializer(typeof(T));
+
+            var memoryStream = new MemoryStream();
+
+            serializer.WriteObject(memoryStream, obj);
+
+            var jsonString = Encoding.UTF8.GetString(memoryStream.ToArray());
+
+            return jsonString;
+        }
     }
 }

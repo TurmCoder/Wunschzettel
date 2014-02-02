@@ -9,13 +9,11 @@ namespace Wunschzettel.Tests
     public class ServerTest
     {
         private IDatabaseAccessLayer database;
-        private IWunschzettelService service;
 
         [SetUp]
         public void SetUp()
         {
             this.database = MockRepository.GenerateStub<IDatabaseAccessLayer>();
-            this.service = MockRepository.GenerateStub<IWunschzettelService>();
         }
 
         [Test]

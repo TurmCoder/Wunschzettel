@@ -13,9 +13,9 @@ namespace Wunschzettel
             this.database = database;
         }
 
-        public string Login()
+        public User Login(LoginData data)
         {
-            return "LoggedIn";
+            return this.database.Login(data.Username, data.Password);
         }
 
         public void AddWish(Wish wish)

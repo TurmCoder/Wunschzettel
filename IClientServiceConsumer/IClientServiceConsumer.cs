@@ -4,7 +4,8 @@ namespace Wunschzettel
 {
     public interface IClientServiceConsumer
     {
-        bool Login();
+        User Login(LoginData data);
+
         Person GetPerson(int personId);
     }
 }

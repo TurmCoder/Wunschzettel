@@ -14,5 +14,6 @@ namespace Wunschzettel
         Person GetPerson(int personId);
         void SavePerson(Person person);
         ITransaction Transaction { get; }
+        User Login(string user, string pass);
     }
 }

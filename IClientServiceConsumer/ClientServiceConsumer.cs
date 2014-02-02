@@ -1,7 +1,5 @@
 ﻿using System;
-using System.IO;
 using System.Net;
-using System.Runtime.Serialization.Json;
 using System.Text;
 using Wunschzettel.Core;
 
@@ -18,38 +16,46 @@ namespace Wunschzettel
             this.InitializeClient();
         }
 
-        public bool Login()
+        public User Login(LoginData data)
         {
-            var result = this.client.DownloadString("Login");
+            //var serializedData = this.serializer.Serialize<LoginData>(data);
 
-            return result.Contains("LoggedIn");
+            //var responeStream = this.client.UploadData("Login", payload);
+
+            //var respone = Encoding.UTF8.GetString(responeStream);
+
+            //var user = this.serializer.Deserialize<User>(respone);
+
+            var user = new User();
+
+            return user;
         }
 
         public Person GetPerson(int i)
         {
-            //var methodString = String.Format("GetPerson?personId={0}", i);
+            var methodString = String.Format("GetPerson?personId={0}", i);
 
-            //var response = this.client.DownloadString(methodString);
+            var response = this.client.DownloadString(methodString);
 
-            //var person = this.serializer.Deserialize<Person>(response);
+            var person = this.serializer.Deserialize<Person>(response);
 
-            var person = new Person()
-                {
-                    Id = 1,
-                    Nachname = "Knutson",
-                    Vorname = "Knut"
-                };
+            //var person = new Person()
+            //    {
+            //        Id = 1,
+            //        Nachname = "Knutson",
+            //        Vorname = "Knut"
+            //    };
 
             return person;
         }
 
-        
-
         private void InitializeClient()
         {
-            this.client = new WebClient();
+            this.client = new WebClient
+                {
+                    BaseAddress = "http://localhost:8000/service/"
+                };
 
-            this.client.BaseAddress = "http://localhost:8000/service/";
             this.client.Headers["Content-type"] = "application/json";
         }
     }

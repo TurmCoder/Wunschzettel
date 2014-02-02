@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using System;
+using NUnit.Framework;
 using Rhino.Mocks;
 using Wunschzettel.Core;
 
@@ -39,7 +40,9 @@ namespace Wunschzettel.Tests
         {
             var consumer = new ClientServiceConsumer(this.serializer);
 
-            var isLoggedIn = consumer.Login();
+            var data = new LoginData("Login", "Login");
+
+            var isLoggedIn = consumer.Login(data);
 
             Assert.That(isLoggedIn, Is.EqualTo(true));
         }
@@ -57,15 +60,31 @@ namespace Wunschzettel.Tests
         [Test]
         public void Deserialize_Response()
         {
-            var response = "{\"Id\":1,\"Nachname\":null,\"Vorname\":null}";
+            const string response = "{\"Id\":1,\"Nachname\":null,\"Vorname\":null}";
 
-            var serializer = new WunschzettelSerializer();
+            this.serializer = new WunschzettelSerializer();
 
-            var result = serializer.Deserialize<Person>(response);
+            var result = this.serializer.Deserialize<Person>(response);
 
             Assert.That(result.GetType(), Is.EqualTo(typeof(Person)));
             Assert.That(result, Is.Not.Null);
             Assert.That(result.Id, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void Serialize_Request()
+        {
+            var loginData = new LoginData("Foo", "Bar");
+            var expectation = "{\"Password\":\""+loginData.Password+"\",\"Username\":\"Foo\"}";
+
+            this.serializer = new WunschzettelSerializer();
+
+
+            var result = this.serializer.Serialize<LoginData>(loginData);
+
+            Assert.That(result, Is.EqualTo(expectation));
+
+           
         }
     }
 }

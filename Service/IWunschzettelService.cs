@@ -9,8 +9,8 @@ namespace Wunschzettel
     public interface IWunschzettelService
     {
         [OperationContract]
-        [WebGet]
-        string Login();
+        [WebInvoke(Method = "POST",RequestFormat = WebMessageFormat.Json,ResponseFormat = WebMessageFormat.Json)]
+        User Login(LoginData loginData);
 
         [OperationContract]
         [WebInvoke]
@@ -29,7 +29,7 @@ namespace Wunschzettel
         IEnumerable<Wish> GetWishes(int personId);
 
         [OperationContract]
-        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "GET", ResponseFormat = WebMessageFormat.Json, BodyStyle = WebMessageBodyStyle.WrappedRequest)]
         Person GetPerson(int personId);
 
         [OperationContract]

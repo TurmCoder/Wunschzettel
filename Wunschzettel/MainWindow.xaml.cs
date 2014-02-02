@@ -14,7 +14,7 @@ namespace Wunschzettel
         private readonly IClientServiceConsumer service;
         private CollectionViewSource personViewModelViewSource;
 
-        public MainWindow()
+        public MainWindow(IClientServiceConsumer clientServiceConsumer)
         {
             InitializeComponent();
 

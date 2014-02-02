@@ -19,6 +19,11 @@ namespace Wunschzettel
             get { return this.session.Transaction; }
         }
 
+        public User Login(string user, string pass)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public DatabaseAccessLayer(ISessionFactoryBuilder sessionFactoryBuilder)
         {
             this.sessionFactoryBuilder = sessionFactoryBuilder;

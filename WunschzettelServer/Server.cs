@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.ServiceModel.Web;
-using Wunschzettel.Core;
 
 namespace Wunschzettel
 {

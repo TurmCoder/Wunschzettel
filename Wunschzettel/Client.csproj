@@ -77,8 +77,17 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClientRegistry.cs" />
+    <Compile Include="Dialoge\Login\ILoginHelper.cs" />
+    <Compile Include="Dialoge\Login\LoginDialog.xaml.cs">
+      <DependentUpon>LoginDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialoge\Login\LoginHelper.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Page Include="Dialoge\Login\LoginDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -128,10 +137,15 @@
       <Project>{70197E18-074E-4D39-8885-EEDCCE151930}</Project>
       <Name>ServiceConsumer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Utility\Utility.csproj">
+      <Project>{b15a477f-a865-4850-95f2-04786ef5812d}</Project>
+      <Name>Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
