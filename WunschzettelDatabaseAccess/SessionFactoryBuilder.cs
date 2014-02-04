@@ -3,6 +3,7 @@ using System.IO;
 using FluentNHibernate.Automapping;
 using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
+using FluentNHibernate.Conventions.Helpers;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
@@ -56,8 +57,10 @@ namespace Wunschzettel
 
         private void AddMappingToConfig(FluentConfiguration config)
         {
-            config.Mappings(map => map.AutoMappings.Add(AutoMap.AssemblyOf<Person>(new AutomappingConfiguration()))
-                                                   .Add(AutoMap.AssemblyOf<Wish>(new AutomappingConfiguration())));
+            config.Mappings(map => map.AutoMappings.Add(AutoMap.AssemblyOf<Person>(new AutomappingConfiguration()).Conventions.Add(DefaultCascade.All()))
+                                                   .Add(AutoMap.AssemblyOf<Wish>(new AutomappingConfiguration()))
+                                                   .Add(AutoMap.AssemblyOf<User>(new AutomappingConfiguration())));
+
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using NHibernate;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Utility;
 using Wunschzettel.Core;
 
 namespace Wunschzettel.Tests
@@ -18,6 +19,7 @@ namespace Wunschzettel.Tests
             this.CreateDatabase();
 
             this.database.SavePerson(DatabaseData.Person);
+            this.database.SaveUser(DatabaseData.User);
         }
 
         [SetUp]
@@ -74,7 +76,54 @@ namespace Wunschzettel.Tests
             
             CollectionAssert.IsNotEmpty(person.Wishlist);
             Assert.That(person.Wishlist[0].Name, Is.EqualTo("Pony"));
+        }
+
+        [Test]
+        public void Create_User()
+        {
+            var user = new User("Login", "Login");
+
+            this.database.SaveUser(user);
+
+            Assert.That(user.Id == 2);
+        }
+
+        [Test]
+        public void Update_User()
+        {
+            var user = this.database.Login(new LoginData("Login", "Login"));
             
+            user.Username = "Login2";
+            user.Password = Hasher.GetSha512("Login2");
+
+            this.database.SaveUser(user);
+
+            Assert.That(user.Id, Is.EqualTo(1));
+
+            var userProof = this.database.Login(new LoginData("Login2", "Login2"));
+
+            Assert.That(userProof.Id, Is.EqualTo(1));
+            Assert.That(userProof, Is.Not.Null);
+        }
+
+        [Test]
+        public void Login()
+        {
+            var loginData = new LoginData("Login", "Login");
+
+            var user = this.database.Login(loginData);
+
+            Assert.That(user, Is.Not.Null);
+        }
+
+        [Test]
+        public void InvalidLogin()
+        {
+            var loginData = new LoginData("Login", "WrongPassword");
+
+            var user = this.database.Login(loginData);
+
+            Assert.That(user, Is.Null);
         }
         
         public void RebuildDatabase()

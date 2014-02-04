@@ -18,15 +18,15 @@ namespace Wunschzettel
 
         public User Login(LoginData data)
         {
-            //var serializedData = this.serializer.Serialize<LoginData>(data);
+            var serializedData = this.serializer.Serialize<LoginData>(data);
 
-            //var responeStream = this.client.UploadData("Login", payload);
+            var dataStream = Encoding.UTF8.GetBytes(serializedData);
 
-            //var respone = Encoding.UTF8.GetString(responeStream);
+            var responeStream = this.client.UploadData("Login", dataStream);
 
-            //var user = this.serializer.Deserialize<User>(respone);
+            var respone = Encoding.UTF8.GetString(responeStream);
 
-            var user = new User();
+            var user = this.serializer.Deserialize<User>(respone);
 
             return user;
         }

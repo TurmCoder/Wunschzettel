@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Utility;
 using Wunschzettel.Core;
 
 namespace Wunschzettel.Tests
@@ -18,6 +19,7 @@ namespace Wunschzettel.Tests
         {
             this.database = MockRepository.GenerateStub<IDatabaseAccessLayer>();
             this.database.Stub(s => s.GetPerson(Arg<int>.Is.Equal(1))).Return(new Person { Id = 1 });
+            this.database.Stub(s => s.Login(Arg<LoginData>.Is.Equal(new LoginData("Login","Login")))).Return(new User("Login", "Login"));
 
             this.service = MockRepository.GenerateStub<IWunschzettelService>();
             this.service.Stub(s => s.GetPerson(Arg<int>.Is.Equal(1))).Return(new Person { Id = 1 });
@@ -42,9 +44,9 @@ namespace Wunschzettel.Tests
 
             var data = new LoginData("Login", "Login");
 
-            var isLoggedIn = consumer.Login(data);
+            var user = consumer.Login(data);
 
-            Assert.That(isLoggedIn, Is.EqualTo(true));
+            Assert.That(user, Is.Not.Null);
         }
 
         [Test]
@@ -75,14 +77,13 @@ namespace Wunschzettel.Tests
         public void Serialize_Request()
         {
             var loginData = new LoginData("Foo", "Bar");
-            var expectation = "{\"Password\":\""+loginData.Password+"\",\"Username\":\"Foo\"}";
-
             this.serializer = new WunschzettelSerializer();
 
+            var serialized = this.serializer.Serialize(loginData);
+            var deserialized =  this.serializer.Deserialize<LoginData>(serialized);
 
-            var result = this.serializer.Serialize<LoginData>(loginData);
-
-            Assert.That(result, Is.EqualTo(expectation));
+            Assert.That(loginData.Username, Is.EqualTo(deserialized.Username));
+            Assert.That(loginData.Password, Is.EqualTo(deserialized.Password));
 
            
         }

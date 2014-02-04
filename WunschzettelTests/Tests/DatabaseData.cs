@@ -1,4 +1,5 @@
-﻿using Wunschzettel.Core;
+﻿using Utility;
+using Wunschzettel.Core;
 
 namespace Wunschzettel.Tests
 {
@@ -21,5 +22,15 @@ namespace Wunschzettel.Tests
                 return person;
             }
         }
+        public static User User
+        {
+            get 
+            { 
+                var user = new User("Login", Hasher.GetSha512("Login"));
+
+                return user;
+            }
+        }
+
     }
 }

@@ -19,9 +19,20 @@ namespace Wunschzettel
             get { return this.session.Transaction; }
         }
 
-        public User Login(string user, string pass)
+        public User Login(LoginData loginData)
         {
-            throw new System.NotImplementedException();
+            var user = this.session.QueryOver<User>().Where(u => u.Username == loginData.Username).SingleOrDefault();
+
+            return (user.Password == loginData.Password) 
+                ? user
+                :null;
+        }
+
+        public void SaveUser(User user)
+        {
+            this.session.Flush();
+
+            this.session.SaveOrUpdate(user);
         }
 
         public DatabaseAccessLayer(ISessionFactoryBuilder sessionFactoryBuilder)
