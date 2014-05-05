@@ -14,3 +14,12 @@ F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\bin\Debug\Core.pdb
 F:\Devel\Peter\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.csprojResolveAssemblyReference.cache
 D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\bin\Debug\Utility.dll
 D:\Development\Development\C#\Wunschzettel\IClientServiceConsumer\bin\Debug\Utility.pdb
+C:\Devel\Wunschzettel\IClientServiceConsumer\bin\Debug\ServiceConsumer.dll
+C:\Devel\Wunschzettel\IClientServiceConsumer\bin\Debug\ServiceConsumer.pdb
+C:\Devel\Wunschzettel\IClientServiceConsumer\bin\Debug\Core.dll
+C:\Devel\Wunschzettel\IClientServiceConsumer\bin\Debug\Utility.dll
+C:\Devel\Wunschzettel\IClientServiceConsumer\bin\Debug\Core.pdb
+C:\Devel\Wunschzettel\IClientServiceConsumer\bin\Debug\Utility.pdb
+C:\Devel\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.csprojResolveAssemblyReference.cache
+C:\Devel\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.dll
+C:\Devel\Wunschzettel\IClientServiceConsumer\obj\Debug\ServiceConsumer.pdb

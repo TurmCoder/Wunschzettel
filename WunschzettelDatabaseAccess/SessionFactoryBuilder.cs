@@ -44,7 +44,7 @@ namespace Wunschzettel
         {
             var connectionString = MySQLConfiguration.Standard.ConnectionString( a =>
                 {
-                    a.Database("wunschzettel");
+                    a.Database("lunchplaner");
                     a.Password("tt6bne4v");
                     a.Server("localhost");
                     a.Username("root");
